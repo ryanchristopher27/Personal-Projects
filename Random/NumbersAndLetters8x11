@@ -1,0 +1,428 @@
+0:
+
+    print("\t   0000000   ")
+    print("\t 000     000 ")
+    print("\t 000    0000 ")
+    print("\t 000   00000 ")
+    print("\t 000 000 000 ")
+    print("\t 00000   000 ")
+    print("\t 0000    000 ")
+    print("\t  000000000  ")
+
+1:
+
+    print("\t      000    ")
+    print("\t   000000    ")
+    print("\t   000000    ")
+    print("\t      000    ")
+    print("\t      000    ")
+    print("\t      000    ")
+    print("\t      000    ")
+    print("\t      000    ")
+
+2:
+
+    print("\t   00000000  ")
+    print("\t 000     000 ")
+    print("\t        0000 ")
+    print("\t       0000  ")
+    print("\t    0000     ")
+    print("\t  0000       ")
+    print("\t 0000        ")
+    print("\t 00000000000 ")
+
+3:
+
+    print("\t   0000000   ")
+    print("\t 000     000 ")
+    print("\t         000 ")
+    print("\t       0000  ")
+    print("\t        000  ")
+    print("\t         000 ")
+    print("\t 000     000 ")
+    print("\t  000000000  ")
+
+4:
+
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 00000000000 ")
+    print("\t         000 ")
+    print("\t         000 ")
+    print("\t         000 ")
+
+5:
+
+    print("\t 00000000000 ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 0000000000  ")
+    print("\t         000 ")
+    print("\t         000 ")
+    print("\t 000     000 ")
+    print("\t  000000000  ")
+
+6:
+
+    print("\t  000000000  ")
+    print("\t 000     000 ")
+    print("\t 000         ")
+    print("\t 0000000000  ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t  000000000  ")
+
+7:
+
+    print("\t 00000000000 ")
+    print("\t 00000000000 ")
+    print("\t         000 ")
+    print("\t         000 ")
+    print("\t         000 ")
+    print("\t         000 ")
+    print("\t         000 ")
+    print("\t         000 ")
+
+8:
+
+    print("\t   0000000   ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t  000000000  ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t  000000000  ")
+
+9:
+
+    print("\t   0000000   ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t  0000000000 ")
+    print("\t         000 ")
+    print("\t 000     000 ")
+    print("\t  000000000  ")
+
+A:
+
+    print("\t    00000    ")
+    print("\t  000000000  ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 00000000000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+
+B:
+
+    print("\t 000000000   ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 0000000000  ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 0000000000  ")
+
+C:
+
+    print("\t  000000000  ")
+    print("\t 000     000 ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 000     000 ")
+    print("\t  000000000  ")
+
+D:
+
+    print("\t 000000000   ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000000000   ")
+
+E:
+
+    print("\t 00000000000 ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 00000000    ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 00000000000 ")
+
+F:
+
+    print("\t 00000000000 ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 00000000    ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 000         ")
+
+G:
+
+    print("\t  000000000  ")
+    print("\t 000     000 ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 000    0000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t  000000000  ")
+
+H:
+
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 00000000000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+
+I:
+
+    print("\t 00000000000 ")
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t 00000000000 ")
+
+J:
+
+    print("\t  0000000000 ")
+    print("\t         000 ")
+    print("\t         000 ")
+    print("\t         000 ")
+    print("\t         000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t  000000000  ")
+
+K:
+
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000    000  ")
+    print("\t 000   000   ")
+    print("\t 00000000    ")
+    print("\t 000    000  ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+
+L:
+
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 00000000000 ")
+
+M:
+
+    print("\t 000     000 ")
+    print("\t 0000   0000 ")
+    print("\t 00000 00000 ")
+    print("\t 000 000 000 ")
+    print("\t 000  0  000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+
+N:
+
+    print("\t 000     000 ")
+    print("\t 0000    000 ")
+    print("\t 000000  000 ")
+    print("\t 000 000 000 ")
+    print("\t 000  000000 ")
+    print("\t 000   00000 ")
+    print("\t 000    0000 ")
+    print("\t 000     000 ")
+
+O:
+
+    print("\t   0000000   ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t  000000000  ")
+
+P:
+
+    print("\t 0000000000  ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 0000000000  ")
+    print("\t 000         ")
+    print("\t 000         ")
+    print("\t 000         ")
+
+Q:
+
+    print("\t   0000000   ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000  00 000 ")
+    print("\t 000   00000 ")
+    print("\t 000     000 ")
+    print("\t  00000000 0 ")
+
+R:
+
+    print("\t 0000000000  ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 0000000000  ")
+    print("\t 000   000   ")
+    print("\t 000    000  ")
+    print("\t 000     000 ")
+
+S:
+
+    print("\t  000000000  ")
+    print("\t 000     000 ")
+    print("\t 000         ")
+    print("\t 0000000000  ")
+    print("\t         000 ")
+    print("\t         000 ")
+    print("\t 000     000 ")
+    print("\t  000000000  ")
+
+T:
+
+    print("\t 00000000000 ")
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t     000     ")
+
+U:
+
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t  000000000  ")
+
+V:
+
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t  000   000  ")
+    print("\t   000 000   ")
+    print("\t     000     ")
+    print("\t      0      ")
+
+W:
+
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t 000  0  000 ")
+    print("\t 000 000 000 ")
+    print("\t 00000 00000 ")
+    print("\t 0000   0000 ")
+    print("\t 000     000 ")
+
+X:
+
+    print("\t 000     000 ")
+    print("\t 0000   0000 ")
+    print("\t  0000 0000  ")
+    print("\t   0000000   ")
+    print("\t   0000000   ")
+    print("\t  0000 0000  ")
+    print("\t 0000   0000 ")
+    print("\t 000     000 ")
+
+Y:
+
+    print("\t 000     000 ")
+    print("\t 000     000 ")
+    print("\t  000   000  ")
+    print("\t   000 000   ")
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t     000     ")
+
+Z:
+
+    print("\t 00000000000 ")
+    print("\t         000 ")
+    print("\t       0000  ")
+    print("\t      0000   ")
+    print("\t    0000     ")
+    print("\t  0000       ")
+    print("\t 0000        ")
+    print("\t 00000000000 ")
+
+!:
+
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t     000     ")
+    print("\t             ")
+    print("\t     000     ")
+    print("\t     000     ")
+
+?:
+
+    print("\t   00000000  ")
+    print("\t 000     000 ")
+    print("\t        000  ")
+    print("\t       000   ")
+    print("\t     000     ")
+    print("\t             ")
+    print("\t     000     ")
+    print("\t     000     ")
+
+.:
+
+    print("\t             ")
+    print("\t             ")
+    print("\t             ")
+    print("\t             ")
+    print("\t             ")
+    print("\t             ")
+    print("\t     000     ")
+    print("\t     000     ")
