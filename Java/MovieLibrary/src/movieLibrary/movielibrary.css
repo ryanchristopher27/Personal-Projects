@@ -1,0 +1,202 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+/*
+    Link for styling table view
+    https://edencoding.com/style-tableview-javafx/
+*/
+
+.mainFxmlClass {
+/*    .table-view .column-header-background {
+        -fx-background-color: black;
+    }*/
+}
+
+/* Title Pane */
+.titlePane {
+    -fx-background-color: linear-gradient(to bottom, #353536, #34cdf7)
+}
+
+/* Table View*/
+.table-view {
+    -fx-background-color: transparent;
+}
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background{
+/*    -fx-background-color: lightgray;
+    -fx-text-background-color: black;*/
+    /*-fx-background-color: linear-gradient(to bottom, #252525, #8956cc);*/
+    -fx-background-color: #34cdf7;
+    -fx-background-radius: 7px 7px 0px 0px;
+    /*-fx-background-insets: 0 11px 0 0;*/
+    -fx-padding: 0 0 5px 0;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-text-background-color: #252525;
+}
+.table-view .table-cell{
+    -fx-background-color: #252525;
+    -fx-border-color: #353536;
+    -fx-border-size: 1px 0 0 0;
+    -fx-padding: 2 0 2 10px;
+    -fx-text-background-color: lightgrey;
+    -fx-tet-background-size: 16px;
+}
+/*.table-row-cell {
+    -fx-text-background-color: #252525;
+}*/
+.table-row-cell:hover {
+    -fx-background-color: lightgrey;
+    -fx-text-background-color: #252525;
+}
+/*.table-row-cell:odd{
+    -fx-background-color: #252525;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:even{
+    -fx-background-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}*/
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    /*-fx-background-color:  linear-gradient(to bottom, #252525, #8956cc);*/
+    -fx-background-color:  #34cdf7;
+}
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    /*-fx-background-color:  linear-gradient(to right, #252525, #8956cc);*/
+    -fx-background-color:  #34cdf7;
+}
+
+/* Label */
+.generalLabels{
+    -fx-text-fill: white;
+}
+
+/* Choice Box */
+.choice-box {
+    -fx-background-color: #252525;
+    -fx-background-radius: 20px;
+    -fx-mark-color: #34cdf7;
+    -fx-border-color: #34cdf7;
+    -fx-border-radius: 20px;
+    -fx-border-width: 2px;
+}
+.choice-box:hover {
+    -fx-background-color: #34cdf7;
+    -fx-mark-color: #252525;
+    -fx-border-color: transparent;
+}
+.choice-box .label{
+    -fx-text-fill: #34cdf7;
+    -fx-font-size: 14px;
+    -fx-font-family: MS Reference Sans Serif;
+    -fx-background-color: #252525;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+}
+.choice-box .label:hover {
+    -fx-text-fill: #252525;
+    -fx-background-color: #34cdf7;
+    /*-fx-background-color: transparent;*/
+}
+.choice-box .menu-item:focused .label{
+    -fx-text-fill: #252525;
+    -fx-background-color: #34cdf7;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+.choice-box .context-menu{
+    -fx-background-color: #252525;
+    -fx-text-fill: white;
+}
+.choice-box .menu-item:focused{
+    -fx-background-color: #34cdf7;
+}
+
+.list-cell {
+    -fx-text-fill: white;
+}
+
+/* Button */
+.button {
+    -fx-background-color: #252525;
+    -fx-background-radius: 20px;
+    -fx-border-color: #34cdf7;
+    -fx-border-radius: 20px;
+    -fx-border-width: 2px;
+    -fx-text-fill: #34cdf7;
+}
+.button:hover {
+    -fx-background-color: #34cdf7;
+    -fx-border-color: transparent;
+    -fx-text-fill: #252525;
+}
+
+/* Text Field */
+.text-field {
+    -fx-background-color: #252525;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-border-color: #34cdf7;
+    -fx-border-width: 2px;
+    -fx-text-fill: #34cdf7;
+    -fx-font-size: 14px;
+    -fx-font-family: MS Reference Sans Serif;
+}
+.text-field:hover, .text-field:active {
+    -fx-background-color: #34cdf7;
+    -fx-text-fill: #252525;
+    -fx-border-color: transparent;
+}
+
+/* Slider
+    Reference: https://stackoverflow.com/questions/51343759/how-to-change-fill-color-of-slider-in-javafx
+*/
+.slider {
+    
+}
+.slider .track {
+    -fx-background-color: linear-gradient(to right, #34cdf7 50%, lightgrey 50%);
+/*    -fx-border-color: #34cdf7;
+    -fx-border-width: 1px;*/
+}
+.slider .thumb{
+    -fx-background-color: transparent;
+    
+}
+.slider .thumb:active{
+    -fx-background-color: #34cdf7;
+}
+.slider .thumb:hover{
+    -fx-background-color: #34cdf7;
+}
+
+.slider:vertical .track{
+    /*-fx-background-color: linear-gradient(to top, #34cdf7 50%, transparent 50%)*/
+    -fx-background-color: transparent;
+}
+.slider:vertical .thumb {
+    /*-fx-background-color: transparent;*/
+}
+
+/*.polygon {
+    -fx-background-color: #34cdf7;
+    -fx-border-color: #34cdf7;
+    -fx-opacity: 0.5;
+}*/
