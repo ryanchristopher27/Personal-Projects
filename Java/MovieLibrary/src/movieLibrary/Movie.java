@@ -16,11 +16,33 @@ public class Movie implements Serializable {
     public String genre;
     public int rating;
     
+    // Rating Variables
+    public int plotRating;
+    public int themeRating;
+    public int visualsRating;
+    public int actingRating;
+    public int soundRating;
+    public int cinemaRating;
+    public int averageRating;
+    
+    // Additional Variables
+    public int length;
+    public String notes;
+    
     // Movie Class Constructors
     public Movie() {
         title = "None";
         genre = "None";
-        rating = 0;
+        rating = 50;
+        plotRating = 50;
+        themeRating = 50;
+        visualsRating = 50;
+        actingRating = 50;
+        soundRating = 50;
+        cinemaRating = 50;
+        averageRating = 50;
+        length = 0;
+        notes = "";
     }
     public Movie(String title) {
         this.title = title;
@@ -46,16 +68,74 @@ public class Movie implements Serializable {
     public void setRating(int rating) {
         this.rating = rating;
     }
+    public void setLength(int length) {
+        this.length = length;
+    }
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+    // Specific Rating Setters
+    public void setPlotRating(int plotRating) {
+        this.plotRating = plotRating;
+    }
+    public void setThemeRating(int themeRating) {
+        this.themeRating = themeRating;
+    }
+    public void setVisualsRating(int visualsRating) {
+        this.visualsRating = visualsRating;
+    }
+    public void setActingRating(int actingRating) {
+        this.actingRating = actingRating;
+    }
+    public void setSoundRating(int soundRating) {
+        this.soundRating = soundRating;
+    }
+    public void setCinemaRating(int cinemaRating) {
+        this.cinemaRating = cinemaRating;
+    }
+    public void setAverageRating() {
+        int sum = this.plotRating + this.themeRating + this.visualsRating + this.actingRating + this.soundRating + this.cinemaRating + this.rating;
+        this.averageRating = (int)(sum / 7);
+    }
+    
     
     // Movie Class Getters
     public String getTitle() {
-        return title;
+        return this.title;
     }
     public String getGenre() {
-        return genre;
+        return this.genre;
     }
     public int getRating() {
-        return rating;
+        return this.rating;
+    }
+    public int getLength() {
+        return this.length;
+    }
+    public String getNotes() {
+        return this.notes;
+    }
+    // Sepcific Rating Getters
+    public int getPlotRating() {
+        return this.plotRating;
+    }
+    public int getThemeRating() {
+        return this.themeRating;
+    }
+    public int getVisualsRating() {
+        return this.visualsRating;
+    }
+    public int getActingRating() {
+        return this.actingRating;
+    }
+    public int getSoundRating() {
+        return this.soundRating;
+    }
+    public int getCinemaRating() {
+        return this.cinemaRating;
+    }
+    public int getAverageRating() {
+        return this.averageRating;
     }
     
     public boolean isInRatingRange(String ratingRange) {

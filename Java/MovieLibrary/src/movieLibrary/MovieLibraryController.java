@@ -87,6 +87,18 @@ public class MovieLibraryController implements Initializable {
     private Slider cinematographySlider;
     @FXML
     private Pane polygonPane;
+    @FXML
+    private TextField plotDisplay;
+    @FXML
+    private TextField visualsDisplay;
+    @FXML
+    private TextField themeDisplay;
+    @FXML
+    private TextField soundDisplay;
+    @FXML
+    private TextField actingDisplay;
+    @FXML
+    private TextField cinemaDisplay;
     
     // Class Variables
     ArrayList<Movie> allMovies = new ArrayList<>();
@@ -94,6 +106,8 @@ public class MovieLibraryController implements Initializable {
     private final String fileName = "saveFile.ser";
     
     Polygon ratingPolygon = new Polygon();
+    Polygon exteriorRatingHex = new Polygon();
+    Polygon interiorRatingHex = new Polygon();
 
     
     // Adjusting FXML Variable
@@ -108,6 +122,7 @@ public class MovieLibraryController implements Initializable {
         ratingColumn.setCellValueFactory(new PropertyValueFactory<>("rating"));
         
         createRatingPolygon();
+        createRatingHexagons();
         
         fileOpen();
         if (allMovies != null) {
@@ -136,6 +151,7 @@ public class MovieLibraryController implements Initializable {
                     "Documentary", "Animated", "Adventure", "Sci-Fi")
         );
         newGenreChoiceBox.setValue("Select a Genre");
+        
     }
     
     public void updateButtonsAndSliders() {
@@ -151,7 +167,7 @@ public class MovieLibraryController implements Initializable {
         newMovieButton.setOnAction(new EventHandler () {
             @Override
             public void handle(Event t) {
-                getNewMovie(titleTextField.getText(), newGenreChoiceBox.getValue(), (int)ratingSlider.getValue());
+                getNewMovie(titleTextField.getText(), newGenreChoiceBox.getValue(), (int)ratingSlider.getValue(), (int)plotSlider.getValue(), (int)themeSlider.getValue(), (int)visualsSlider.getValue(), (int)actingSlider.getValue(), (int)soundSlider.getValue(), (int)cinematographySlider.getValue());
             }
         });
         // When New Movie Rating Slider is Moved
@@ -194,162 +210,102 @@ public class MovieLibraryController implements Initializable {
         plotSlider.setOnMouseDragged(new EventHandler () {
             @Override
             public void handle(Event t) {
-//                Integer sliderVal = (int)plotSlider.getValue();
-//                newRatingLabel.setText(sliderVal.toString());
                 // Update Slider Track Gradient
 //                String style = String.format("-fx-background-color: linear-gradient(to top, #34cdf7 %d%%, transparent %d%%);",
 //                        sliderVal, sliderVal);
 //                plotSlider.lookup(".track").setStyle(style);
                 updateRatingPolygon();
+                plotDisplay.setText(String.valueOf((int)plotSlider.getValue()));
             }
         });
         plotSlider.setOnMousePressed(new EventHandler () {
             @Override
             public void handle(Event t) {
-//                Integer sliderVal = (int)plotSlider.getValue();
-//                newRatingLabel.setText(sliderVal.toString());
-                // Update Slider Track Gradient
-//                String style = String.format("-fx-background-color: linear-gradient(to top, #34cdf7 %d%%, transparent %d%%);",
-//                        sliderVal, sliderVal);
-//                plotSlider.lookup(".track").setStyle(style);
                 updateRatingPolygon();
+                plotDisplay.setText(String.valueOf((int)plotSlider.getValue()));
             }
         });
         // Visuals
         visualsSlider.setOnMouseDragged(new EventHandler () {
             @Override
             public void handle(Event t) {
-//                Integer sliderVal = (int)visualsSlider.getValue();
-//                newRatingLabel.setText(sliderVal.toString());
-                // Update Slider Track Gradient
-//                String style = String.format("-fx-background-color: linear-gradient(to top, #34cdf7 %d%%, transparent %d%%);",
-//                        sliderVal, sliderVal);
-//                visualsSlider.lookup(".track").setStyle(style);
                 updateRatingPolygon();
+                visualsDisplay.setText(String.valueOf((int)visualsSlider.getValue()));
             }
         });
         visualsSlider.setOnMousePressed(new EventHandler () {
             @Override
             public void handle(Event t) {
-//                Integer sliderVal = (int)visualsSlider.getValue();
-//                newRatingLabel.setText(sliderVal.toString());
-                // Update Slider Track Gradient
-//                String style = String.format("-fx-background-color: linear-gradient(to top, #34cdf7 %d%%, transparent %d%%);",
-//                        sliderVal, sliderVal);
-//                visualsSlider.lookup(".track").setStyle(style);
                 updateRatingPolygon();
+                visualsDisplay.setText(String.valueOf((int)visualsSlider.getValue()));
             }
         });
         // Theme
         themeSlider.setOnMouseDragged(new EventHandler () {
             @Override
             public void handle(Event t) {
-//                Integer sliderVal = (int)themeSlider.getValue();
-//                newRatingLabel.setText(sliderVal.toString());
-                // Update Slider Track Gradient
-//                String style = String.format("-fx-background-color: linear-gradient(to top, #34cdf7 %d%%, transparent %d%%);",
-//                        sliderVal, sliderVal);
-//                themeSlider.lookup(".track").setStyle(style);
                 updateRatingPolygon();
+                themeDisplay.setText(String.valueOf((int)themeSlider.getValue()));
             }
         });
         themeSlider.setOnMousePressed(new EventHandler () {
             @Override
             public void handle(Event t) {
-//                Integer sliderVal = (int)themeSlider.getValue();
-//                newRatingLabel.setText(sliderVal.toString());
-                // Update Slider Track Gradient
-//                String style = String.format("-fx-background-color: linear-gradient(to top, #34cdf7 %d%%, transparent %d%%);",
-//                        sliderVal, sliderVal);
-//                themeSlider.lookup(".track").setStyle(style);
                 updateRatingPolygon();
+                themeDisplay.setText(String.valueOf((int)themeSlider.getValue()));
             }
         });
         // Sound
         soundSlider.setOnMouseDragged(new EventHandler () {
             @Override
             public void handle(Event t) {
-//                Integer sliderVal = (int)soundSlider.getValue();
-//                newRatingLabel.setText(sliderVal.toString());
-                // Update Slider Track Gradient
-//                String style = String.format("-fx-background-color: linear-gradient(to top, #34cdf7 %d%%, transparent %d%%);",
-//                        sliderVal, sliderVal);
-//                soundSlider.lookup(".track").setStyle(style);
                 updateRatingPolygon();
+                soundDisplay.setText(String.valueOf((int)soundSlider.getValue()));
             }
         });
         soundSlider.setOnMousePressed(new EventHandler () {
             @Override
             public void handle(Event t) {
-//                Integer sliderVal = (int)soundSlider.getValue();
-//                newRatingLabel.setText(sliderVal.toString());
-                // Update Slider Track Gradient
-//                String style = String.format("-fx-background-color: linear-gradient(to top, #34cdf7 %d%%, transparent %d%%);",
-//                        sliderVal, sliderVal);
-//                soundSlider.lookup(".track").setStyle(style);
                 updateRatingPolygon();
+                soundDisplay.setText(String.valueOf((int)soundSlider.getValue()));
             }
         });
         // Cinematography
         cinematographySlider.setOnMouseDragged(new EventHandler () {
             @Override
             public void handle(Event t) {
-//                Integer sliderVal = (int)cinematographySlider.getValue();
-//                newRatingLabel.setText(sliderVal.toString());
-                // Update Slider Track Gradient
-//                String style = String.format("-fx-background-color: linear-gradient(to top, #34cdf7 %d%%, transparent %d%%);",
-//                        sliderVal, sliderVal);
-//                cinematographySlider.lookup(".track").setStyle(style);
                 updateRatingPolygon();
+                cinemaDisplay.setText(String.valueOf((int)cinematographySlider.getValue()));
             }
         });
         cinematographySlider.setOnMousePressed(new EventHandler () {
             @Override
             public void handle(Event t) {
-//                Integer sliderVal = (int)cinematographySlider.getValue();
-//                newRatingLabel.setText(sliderVal.toString());
-                // Update Slider Track Gradient
-//                String style = String.format("-fx-background-color: linear-gradient(to top, #34cdf7 %d%%, transparent %d%%);",
-//                        sliderVal, sliderVal);
-//                cinematographySlider.lookup(".track").setStyle(style);
                 updateRatingPolygon();
+                cinemaDisplay.setText(String.valueOf((int)cinematographySlider.getValue()));
             }
         });
         // Acting
         actingSlider.setOnMouseDragged(new EventHandler () {
             @Override
             public void handle(Event t) {
-//                Integer sliderVal = (int)actingSlider.getValue();
-//                newRatingLabel.setText(sliderVal.toString());
-                // Update Slider Track Gradient
-//                String style = String.format("-fx-background-color: linear-gradient(to top, #34cdf7 %d%%, transparent %d%%);",
-//                        sliderVal, sliderVal);
-//                actingSlider.lookup(".track").setStyle(style);
                 updateRatingPolygon();
+                actingDisplay.setText(String.valueOf((int)actingSlider.getValue()));
             }
         });
         actingSlider.setOnMousePressed(new EventHandler () {
             @Override
             public void handle(Event t) {
-//                Integer sliderVal = (int)actingSlider.getValue();
-//                newRatingLabel.setText(sliderVal.toString());
-                // Update Slider Track Gradient
-//                String style = String.format("-fx-background-color: linear-gradient(to top, #34cdf7 %d%%, transparent %d%%);",
-//                        sliderVal, sliderVal);
-//                actingSlider.lookup(".track").setStyle(style);
                 updateRatingPolygon();
+                actingDisplay.setText(String.valueOf((int)actingSlider.getValue()));
             }
         });
     }
     
     public void createRatingPolygon() {
-//        ratingPolygon.setId("ratingPolygon");
-        ratingPolygon.setFill(Color.rgb(0x34, 0xcd, 0xf7));
-        ratingPolygon.setStroke(Color.BLACK);
-        ratingPolygon.setOpacity(0.5);
-//        ratingPolygon.setStroke(Color.rgb(0x34, 0xcd, 0xf7));
-//        ratingPolygon.setStrokeWidth(2);
-//        ratingPolygon.setRotate(30.0);
+        ratingPolygon.setFill(Color.rgb(0x34, 0xcd, 0xf7, 0.5));
+        ratingPolygon.setStroke(Color.rgb(0x34, 0xcd, 0xf7));
+        ratingPolygon.setStrokeWidth(2);
         ObservableList<Double> list = ratingPolygon.getPoints();
 
         double centerX = 200;
@@ -378,6 +334,54 @@ public class MovieLibraryController implements Initializable {
         list.add(centerY + radius);
         
         polygonPane.getChildren().add(ratingPolygon);
+    }
+    
+    public void createRatingHexagons() {
+        exteriorRatingHex.setFill(Color.TRANSPARENT);
+        exteriorRatingHex.setStroke(Color.rgb(0x34, 0xcd, 0xf7));
+        ObservableList<Double> exteriorList = exteriorRatingHex.getPoints();
+        double centerX = 200;
+        double centerY = 200;
+        double extRadius = 150;
+        double extX = extRadius * (Math.sqrt(3)/2);
+        double extY = extRadius / 2;
+        
+        exteriorList.add(centerX + extX);
+        exteriorList.add(centerY + extY);
+        exteriorList.add(centerX + extX);
+        exteriorList.add(centerY - extY);       
+        exteriorList.add(centerX);
+        exteriorList.add(centerY - extRadius);       
+        exteriorList.add(centerX - extX);
+        exteriorList.add(centerY - extY);       
+        exteriorList.add(centerX - extX);
+        exteriorList.add(centerY + extY);       
+        exteriorList.add(centerX);
+        exteriorList.add(centerY + extRadius);
+        
+        interiorRatingHex.setFill(Color.TRANSPARENT);
+        interiorRatingHex.setStroke(Color.rgb(0x34, 0xcd, 0xf7));
+        ObservableList<Double> interiorList = interiorRatingHex.getPoints();
+        double intRadius = 75;
+        double intX = intRadius * (Math.sqrt(3)/2);
+        double intY = intRadius / 2;
+        
+        interiorList.add(centerX + intX);
+        interiorList.add(centerY + intY);
+        interiorList.add(centerX + intX);
+        interiorList.add(centerY - intY);       
+        interiorList.add(centerX);
+        interiorList.add(centerY - intRadius);       
+        interiorList.add(centerX - intX);
+        interiorList.add(centerY - intY);       
+        interiorList.add(centerX - intX);
+        interiorList.add(centerY + intY);       
+        interiorList.add(centerX);
+        interiorList.add(centerY + intRadius);
+        
+        polygonPane.getChildren().add(exteriorRatingHex);
+        polygonPane.getChildren().add(interiorRatingHex);
+        
     }
     
     public void updateRatingPolygon() {
@@ -423,7 +427,7 @@ public class MovieLibraryController implements Initializable {
         return radius / 2;
     }
     
-    public void getNewMovie(String title, String genre, int rating) {
+    public void getNewMovie(String title, String genre, int rating, int plotRating, int themeRating, int visualsRating, int actingRating, int soundRating, int cinemaRating) {
         Movie movie = new Movie();
         
         if (title.equals("")) {
@@ -436,6 +440,13 @@ public class MovieLibraryController implements Initializable {
             movie.setTitle(title);
             movie.setGenre(genre);
             movie.setRating(rating);
+            movie.setPlotRating(plotRating);
+            movie.setThemeRating(themeRating);
+            movie.setVisualsRating(visualsRating);
+            movie.setActingRating(actingRating);
+            movie.setSoundRating(soundRating);
+            movie.setCinemaRating(cinemaRating);
+            movie.setAverageRating();
             
             allMovies.add(movie);
             movieCount++;
