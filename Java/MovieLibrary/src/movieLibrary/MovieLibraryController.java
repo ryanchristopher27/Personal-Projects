@@ -46,8 +46,6 @@ public class MovieLibraryController implements Initializable {
 
     // FXML Variables
     @FXML
-    private Text testText;
-    @FXML
     private ChoiceBox<String> genreChoiceBox;
     @FXML
     private ChoiceBox<String> ratingChoiceBox;
