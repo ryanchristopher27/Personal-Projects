@@ -21,7 +21,6 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Bounds;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -35,7 +34,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
 
@@ -63,6 +61,8 @@ public class MovieLibraryController implements Initializable {
     private TableColumn genreColumn;
     @FXML
     private TableColumn ratingColumn;
+    @FXML
+    private TableColumn avgRatingColumn;
     @FXML
     private TextField titleTextField;
     @FXML
@@ -106,8 +106,10 @@ public class MovieLibraryController implements Initializable {
     private final String fileName = "saveFile.ser";
     
     Polygon ratingPolygon = new Polygon();
-    Polygon exteriorRatingHex = new Polygon();
-    Polygon interiorRatingHex = new Polygon();
+    Polygon ratingHex150 = new Polygon();
+    Polygon ratingHex1125 = new Polygon();
+    Polygon ratingHex75 = new Polygon();
+    Polygon ratingHex325 = new Polygon();
 
     
     // Adjusting FXML Variable
@@ -120,9 +122,10 @@ public class MovieLibraryController implements Initializable {
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         genreColumn.setCellValueFactory(new PropertyValueFactory<>("genre"));
         ratingColumn.setCellValueFactory(new PropertyValueFactory<>("rating"));
+        avgRatingColumn.setCellValueFactory(new PropertyValueFactory<>("averageRating"));
         
         createRatingPolygon();
-        createRatingHexagons();
+        createAllRatingHexagons();
         
         fileOpen();
         if (allMovies != null) {
@@ -133,6 +136,7 @@ public class MovieLibraryController implements Initializable {
         updateMovieList("All", "All");
     }
     
+    // Alters UI
     public void setChoiceBoxValues() {
         // Sets Drop Down Menu Values For Update Movies
         genreChoiceBox.setItems(FXCollections.observableArrayList(
@@ -154,6 +158,7 @@ public class MovieLibraryController implements Initializable {
         
     }
     
+    // Alters UI
     public void updateButtonsAndSliders() {
         // When Update Movies Button is Pressed
         updateMoviesButton.setOnAction(new EventHandler () {
@@ -300,8 +305,178 @@ public class MovieLibraryController implements Initializable {
                 actingDisplay.setText(String.valueOf((int)actingSlider.getValue()));
             }
         });
+        
+        themeDisplay.setOnAction(new EventHandler () {
+            @Override
+            public void handle(Event t) {
+                String val = themeDisplay.getText();
+                try 
+		{ 
+			Integer.parseInt(val); 
+                        if (Integer.valueOf(val) >= 0 && Integer.valueOf(val) <= 100) {
+                            themeSlider.setValue(Integer.valueOf(val));
+                            updateRatingPolygon();
+                        }
+                        else {
+                            showAlert("Must enter an integer 0-100");
+                            themeDisplay.setText("50");
+                            themeSlider.setValue(50);
+                            updateRatingPolygon();
+                        }
+		}  
+		catch (NumberFormatException e)  
+		{ 
+                    showAlert("Must enter an integer 0-100");
+                    themeDisplay.setText("50");
+                    themeSlider.setValue(50);
+                    updateRatingPolygon();
+		} 
+            }    
+        });
+        
+        plotDisplay.setOnAction(new EventHandler () {
+            @Override
+            public void handle(Event t) {
+                String val = plotDisplay.getText();
+                try 
+		{ 
+			Integer.parseInt(val); 
+                        if (Integer.valueOf(val) >= 0 && Integer.valueOf(val) <= 100) {
+                            plotSlider.setValue(Integer.valueOf(val));
+                            updateRatingPolygon();
+                        }
+                        else {
+                            showAlert("Must enter an integer 0-100");
+                            plotDisplay.setText("50");
+                            plotSlider.setValue(50);
+                            updateRatingPolygon();
+                        }
+		}  
+		catch (NumberFormatException e)  
+		{ 
+                    showAlert("Must enter an integer 0-100");
+                    plotDisplay.setText("50");
+                    plotSlider.setValue(50);
+                    updateRatingPolygon();
+		} 
+            }    
+        });
+        
+        visualsDisplay.setOnAction(new EventHandler () {
+            @Override
+            public void handle(Event t) {
+                String val = visualsDisplay.getText();
+                try 
+		{ 
+			Integer.parseInt(val); 
+                        if (Integer.valueOf(val) >= 0 && Integer.valueOf(val) <= 100) {
+                            visualsSlider.setValue(Integer.valueOf(val));
+                            updateRatingPolygon();
+                        }
+                        else {
+                            showAlert("Must enter an integer 0-100");
+                            visualsDisplay.setText("50");
+                            visualsSlider.setValue(50);
+                            updateRatingPolygon();
+                        }
+		}  
+		catch (NumberFormatException e)  
+		{ 
+                    showAlert("Must enter an integer 0-100");
+                    visualsDisplay.setText("50");
+                    visualsSlider.setValue(50);
+                    updateRatingPolygon();
+		} 
+            }    
+        });
+        
+        actingDisplay.setOnAction(new EventHandler () {
+            @Override
+            public void handle(Event t) {
+                String val = actingDisplay.getText();
+                try 
+		{ 
+			Integer.parseInt(val); 
+                        if (Integer.valueOf(val) >= 0 && Integer.valueOf(val) <= 100) {
+                            actingSlider.setValue(Integer.valueOf(val));
+                            updateRatingPolygon();
+                        }
+                        else {
+                            showAlert("Must enter an integer 0-100");
+                            actingDisplay.setText("50");
+                            actingSlider.setValue(50);
+                            updateRatingPolygon();
+                        }
+		}  
+		catch (NumberFormatException e)  
+		{ 
+                    showAlert("Must enter an integer 0-100");
+                    actingDisplay.setText("50");
+                    actingSlider.setValue(50);
+                    updateRatingPolygon();
+		} 
+            }    
+        });
+        
+        soundDisplay.setOnAction(new EventHandler () {
+            @Override
+            public void handle(Event t) {
+                String val = soundDisplay.getText();
+                try 
+		{ 
+			Integer.parseInt(val); 
+                        if (Integer.valueOf(val) >= 0 && Integer.valueOf(val) <= 100) {
+                            soundSlider.setValue(Integer.valueOf(val));
+                            updateRatingPolygon();
+                        }
+                        else {
+                            showAlert("Must enter an integer 0-100");
+                            soundDisplay.setText("50");
+                            soundSlider.setValue(50);
+                            updateRatingPolygon();
+                        }
+		}  
+		catch (NumberFormatException e)  
+		{ 
+                    showAlert("Must enter an integer 0-100");
+                    soundDisplay.setText("50");
+                    soundSlider.setValue(50);
+                    updateRatingPolygon();
+		} 
+            }    
+        });
+        
+        cinemaDisplay.setOnAction(new EventHandler () {
+            @Override
+            public void handle(Event t) {
+                String val = cinemaDisplay.getText();
+                try 
+		{ 
+			Integer.parseInt(val); 
+                        if (Integer.valueOf(val) >= 0 && Integer.valueOf(val) <= 100) {
+                            cinematographySlider.setValue(Integer.valueOf(val));
+                            updateRatingPolygon();
+                        }
+                        else {
+                            showAlert("Must enter an integer 0-100");
+                            cinemaDisplay.setText("50");
+                            cinematographySlider.setValue(50);
+                            updateRatingPolygon();
+                        }
+		}  
+		catch (NumberFormatException e)  
+		{ 
+                    showAlert("Must enter an integer 0-100");
+                    cinemaDisplay.setText("50");
+                    cinematographySlider.setValue(50);
+                    updateRatingPolygon();
+		} 
+            }    
+        });
+        
     }
     
+    // Alters UI
     public void createRatingPolygon() {
         ratingPolygon.setFill(Color.rgb(0x34, 0xcd, 0xf7, 0.5));
         ratingPolygon.setStroke(Color.rgb(0x34, 0xcd, 0xf7));
@@ -336,54 +511,41 @@ public class MovieLibraryController implements Initializable {
         polygonPane.getChildren().add(ratingPolygon);
     }
     
-    public void createRatingHexagons() {
-        exteriorRatingHex.setFill(Color.TRANSPARENT);
-        exteriorRatingHex.setStroke(Color.rgb(0x34, 0xcd, 0xf7));
-        ObservableList<Double> exteriorList = exteriorRatingHex.getPoints();
+    // Alters UI
+    public void createRatingHexagon(double radius, Polygon hexagon) {  
+        hexagon.setFill(Color.TRANSPARENT);
+        hexagon.setStroke(Color.rgb(0x34, 0xcd, 0xf7));
+        ObservableList<Double> list = hexagon.getPoints();
         double centerX = 200;
         double centerY = 200;
-        double extRadius = 150;
-        double extX = extRadius * (Math.sqrt(3)/2);
-        double extY = extRadius / 2;
+//        double intRadius = 75;
+        double intX = radius * (Math.sqrt(3)/2);
+        double intY = radius / 2;
         
-        exteriorList.add(centerX + extX);
-        exteriorList.add(centerY + extY);
-        exteriorList.add(centerX + extX);
-        exteriorList.add(centerY - extY);       
-        exteriorList.add(centerX);
-        exteriorList.add(centerY - extRadius);       
-        exteriorList.add(centerX - extX);
-        exteriorList.add(centerY - extY);       
-        exteriorList.add(centerX - extX);
-        exteriorList.add(centerY + extY);       
-        exteriorList.add(centerX);
-        exteriorList.add(centerY + extRadius);
+        list.add(centerX + intX);
+        list.add(centerY + intY);
+        list.add(centerX + intX);
+        list.add(centerY - intY);       
+        list.add(centerX);
+        list.add(centerY - radius);       
+        list.add(centerX - intX);
+        list.add(centerY - intY);       
+        list.add(centerX - intX);
+        list.add(centerY + intY);       
+        list.add(centerX);
+        list.add(centerY + radius);
         
-        interiorRatingHex.setFill(Color.TRANSPARENT);
-        interiorRatingHex.setStroke(Color.rgb(0x34, 0xcd, 0xf7));
-        ObservableList<Double> interiorList = interiorRatingHex.getPoints();
-        double intRadius = 75;
-        double intX = intRadius * (Math.sqrt(3)/2);
-        double intY = intRadius / 2;
-        
-        interiorList.add(centerX + intX);
-        interiorList.add(centerY + intY);
-        interiorList.add(centerX + intX);
-        interiorList.add(centerY - intY);       
-        interiorList.add(centerX);
-        interiorList.add(centerY - intRadius);       
-        interiorList.add(centerX - intX);
-        interiorList.add(centerY - intY);       
-        interiorList.add(centerX - intX);
-        interiorList.add(centerY + intY);       
-        interiorList.add(centerX);
-        interiorList.add(centerY + intRadius);
-        
-        polygonPane.getChildren().add(exteriorRatingHex);
-        polygonPane.getChildren().add(interiorRatingHex);
-        
+        polygonPane.getChildren().add(hexagon);
     }
     
+    public void createAllRatingHexagons() {
+        createRatingHexagon(150, ratingHex150);
+        createRatingHexagon(112.5, ratingHex1125);
+        createRatingHexagon(75, ratingHex75);
+        createRatingHexagon(32.5, ratingHex325);   
+    }
+    
+    // Alters UI
     public void updateRatingPolygon() {
         polygonPane.getChildren().remove(ratingPolygon);
         ObservableList<Double> list = ratingPolygon.getPoints();
@@ -460,6 +622,7 @@ public class MovieLibraryController implements Initializable {
         }
     }
     
+    // Alters UI
     // Updates the movie list
     public void updateMovieList(String selectedGenre, String selectedRating) {
         ObservableList<Movie> movies = FXCollections.observableArrayList();
@@ -539,6 +702,7 @@ public class MovieLibraryController implements Initializable {
         }
     }
     
+    // Alters UI
     // Clears Inputs for New Movie Survey
     public void clearNewMovieInputs() {
         titleTextField.setText("");
@@ -548,6 +712,7 @@ public class MovieLibraryController implements Initializable {
         newRatingLabel.setText("50");
     }
     
+    // Alters UI
     // Displays alert with passed string
     public void showAlert(String contentText) {
         Alert mainAlert = new Alert(Alert.AlertType.ERROR);
@@ -555,6 +720,7 @@ public class MovieLibraryController implements Initializable {
         mainAlert.show();
     }
     
+    // Alters UI
     private boolean confirmContinueOnDeletion(String title) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete Movie");

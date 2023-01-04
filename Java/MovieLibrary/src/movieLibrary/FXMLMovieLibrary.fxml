@@ -90,9 +90,10 @@
                   </HBox>
                   <TableView id="movieTable" fx:id="movieTableView" maxWidth="800.0" prefHeight="462.0" prefWidth="800.0">
                     <columns>
-                      <TableColumn id="titleColumn" fx:id="titleColumn" prefWidth="319.0" text="Title" />
-                      <TableColumn id="genreColumn" fx:id="genreColumn" prefWidth="293.0" text="Genre" />
-                        <TableColumn id="ratingColumn" fx:id="ratingColumn" prefWidth="187.0" text="Rating" />
+                      <TableColumn id="titleColumn" fx:id="titleColumn" prefWidth="266.0" text="Title" />
+                      <TableColumn id="genreColumn" fx:id="genreColumn" prefWidth="180.0" text="Genre" />
+                        <TableColumn id="ratingColumn" fx:id="ratingColumn" prefWidth="185.0" text="Personal Rating" />
+                        <TableColumn fx:id="avgRatingColumn" prefWidth="168.0" text="Average Rating" />
                     </columns>
                      <VBox.margin>
                         <Insets bottom="40.0" left="40.0" right="40.0" top="25.0" />
@@ -108,11 +109,14 @@
                            <font>
                               <Font name="MS Reference Sans Serif" size="22.0" />
                            </font>
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
                         </Label>
                         <TextField fx:id="titleTextField" maxWidth="220.0" prefHeight="30.0" prefWidth="220.0" />
                      </children>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets top="15.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
@@ -121,6 +125,9 @@
                            <font>
                               <Font name="MS Reference Sans Serif" size="22.0" />
                            </font>
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
                         </Label>
                         <ChoiceBox fx:id="newGenreChoiceBox" prefWidth="220.0" />
                      </children>
@@ -128,9 +135,9 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <Label alignment="CENTER" prefWidth="100.0" styleClass="generalLabels" text="Rating" textFill="WHITE">
+                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="200.0" styleClass="generalLabels" text="Personal Rating" textFill="WHITE">
                      <VBox.margin>
-                        <Insets left="150.0" top="5.0" />
+                        <Insets left="100.0" />
                      </VBox.margin>
                      <font>
                         <Font size="22.0" />
